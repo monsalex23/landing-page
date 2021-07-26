@@ -26,3 +26,24 @@ form.addEventListener('submit', (e) => {
   }, 1000)
 
 })
+
+
+const carrito = document.querySelectorAll('.btn');
+carrito.forEach((addCarrito) => {
+  addCarrito.addEventListener('click', addCarritoClick);
+});
+
+function addCarritoClick(event) {
+  const button = event.target;
+  const funko = button.closest('.left-column');
+
+  const cardTitle = funko.querySelector('.title').textContent;
+  const cardPrice = funko.querySelector('.precio').textContent;
+  
+  
+  localStorage.setItem('produto', cardTitle + " " + cardPrice);
+  
+}
+
+
+
